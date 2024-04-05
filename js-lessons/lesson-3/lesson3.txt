@@ -1,1 +1,91 @@
-Dev Tools
+Dev Tools https://www.theodinproject.com/lessons/foundations-javascript-developer-tools
+
+View and change CSS https://developer.chrome.com/docs/devtools/css/
+    view an elements CSS    
+    add a css declaration to an element
+    add a css class to an element
+    add a psuedostate to a class
+    change the dimensions of an element
+
+Debug JavaScript https://developer.chrome.com/docs/devtools/javascript/
+    1. Reproduce the bug
+    2. Getfamiliar weith the Sources panel UI
+    3. Pause code with a breakpoint
+    4. Step through the code
+    5. Set a line-of-code breakpoint
+    6. Check variables values
+        Method 1. The Scope pane
+        Method 2. Watch Expressions
+        Method 3. The Console
+    7. Apply a fix.
+    8. next steps: https://developer.chrome.com/docs/devtools/javascript/#next-steps
+
+Breakpoints, Pause your code https://developer.chrome.com/docs/devtools/javascript/breakpoints/
+    Overview of when to use each breakpoint type
+    Line-of-code breakpoints
+        Line-of-code breakpoints in your code
+        Conditional line-of-code breakpoints
+        Log line-of-code breakpoints
+        Edit line-of-code breakpoints
+    DOM change breakpoints
+        Types of DOM change breakpoints
+    XHR/fetch breakpoints
+    Event listener Breakpoints
+    Exception breakpoints
+        Exceptions in asynchronous calls
+        Caught exceptions and ignored code
+    Function breakpoints
+        Make sure  the target function is in Scope
+    Trusted Type breakpoints
+
+    Breakpoint Type	Use this when you want to ...
+Line-of-code	Pause on an exact region of code.
+Conditionals	Pause on an exact region of code, but only when some other condition is true.
+Logpoint	    Log a message to the Console without pausing the execution.
+DOM	            Pause on the code that changes or removes a specific DOM node, or its children.
+XHR	            Pause when an XHR URL contains a string pattern.
+Event listener	Pause on the code that runs after an event, such as click, is fired.
+Exception	    Pause on the line of code that is throwing a caught or uncaught exception.
+Function	    Pause whenever a specific function is called.
+Trusted Type	Pause on Trusted Type violations.
+
+Css features reference https://developer.chrome.com/docs/devtools/css/reference/
+    select an element
+    view css    
+        navigate with links
+        view tooltips w css documentation, specificity, custom property values
+        view invalid, overridden, inactive, and other css
+        view only the css that's actually applied to an element
+        view css properties in alphabetical order
+        view inherited css properties
+        view CSS at-rules
+        view an element's box model
+        search and filter an element's cssemulate a focused page
+        Toggle a psuedo-class
+        View inherited highlight psuedo-elements
+        View cascae layers
+        View a page in print mode
+        View used and unused CSS with the Coverage tab
+        Force print preview mode
+    Copy Css
+    Change CSS
+        Add a CSS declaration to an element
+        Change a declaration name or value
+        Change enumerable values with keyboard shortcuts
+        Change length values
+        Add a class to an element
+        Emulate light and dark theme preferences and enable auto dark mode
+        Toggle a class
+        Add a style rule
+        Toggle a declaration
+        Edit the ::view-transition pseudo-elements during an animation
+        Align grid items and their content with the Grid Editor
+        Change colors with the Color Picker
+        Change angle value with the Angle Clock
+        Change box and text shadows with the Shadow Editor
+        Edit animation and transition timings with the Easing Editor
+        Use presets to adjust timings
+        Configure custom timings
+        (Experimental) Copy CSS changes
+
+
