@@ -1,0 +1,99 @@
+JS Lesson 1
+
+Variables
+    Js needs to work with information
+        1. an online shop the info might be goods being sold and a cart
+        2. chat app - users messages, more
+        variables store this information
+
+A variable 
+    1. use let to create a variable
+        let message = 'Hello'; // stores the string 'Hello' in variable message
+        alert(message); mkaes a pop up saying Hello!
+    2. declare multiple variables in one line
+        let user = 'John', age = 25, message = 'Hello';
+    3. multiple variables in multiple lines
+        let user = 'John'
+        ,   age = 25
+        ,   message = 'Hello';
+
+Limitations on variable names
+    1. the name must contain only letters, difits or the symbols $ and _
+    2. first char must not be a digit
+ex: let userName
+    let user1234
+    let $ = 1
+    let _ = 2
+    alert($ + _) // 3
+incorrect: 
+    let 1a // digit first
+    let my-name // hyphen
+
+Reserved names 
+    words used used by the language are taken.
+ex: let let // can't name a variable "Let", error!
+
+"Use Strict"
+    Use Strict is a modern standard setting in JS.
+    Use Strict requires the use of commands to define variables IE let
+    Use Strict was not used in much older versions of JS
+    If we do not add Use Strict, we can define variable by writing num = 5
+    the variable num would = 5 with no prior command 
+    This is a bad practice because everyone uses Strict mode.
+    This would cause in error for anyone who opens this file in strict mode
+
+Constants
+    Variables declared using const are constants. 
+    They cannot be reassigned. doing so would cause an error.
+    Ex: const myBirthday = '18.04.1982'
+        myBirthday = '01.01.2001' // error, can't reassign the constant.
+
+uppercase constants
+    all caps constants for difficult to remember values ie colors
+    const  COLOR_RED = '#F00';
+    let color = COLOR_RED;
+    alert(color);
+    Only use all caps for "hard-coded" values 
+    these are values that remain the same throughout the project
+
+Name things correctly
+    variables should have clean obvious names
+    variable names reveal the experience level of the writer
+    well-written code includes well-written variable names
+    proper variable names help when code is revisisted for additional work
+    agree on terms within your team and in your mind.
+
+Reuse or create?
+    Lazy writers reuse variables instead of creating new ones.
+    Their variables are like old moving boxes without new stickers.
+    What is in this box now? No one knows. Now we must waste time looking.
+    It may save time initially, but costs them dearly in debugging.
+    an extra variable is good, not evil.
+
+Type Coercion in JS
+    if either operand is a string, the other operand will be converted to a string
+    if either operand is a number, the other operand will be converted to a number
+    if either operand is a boolean, it will be converted to a number (true =1, false=0.)
+    if one operand is an object and the other is a primitive value,
+        the object will be converted to a primitive value before the comparison is made.
+    if one of the operatnds is null or undefind, the other must also be
+        null/undefined to return true, otherwise it will return false.
+
+what these mean for == vs ===
+
+if const a = true;
+&  const b = 'true';
+console.log(a==b) // false
+    because a is converted to a 1, b is still a string
+
+=== is similar to == except:
+=== does not convert types before comparing.
+This is called "Strict Equality". 
+Types must be the same when using triple equal (===)
+because it does not convert types before comparing.
+
+while using === if the types are different === returns false.
+if types match, and valeus are the same, it returns true
+same number values are true
+two NaN are true
+two number values that do not match perfecly are false

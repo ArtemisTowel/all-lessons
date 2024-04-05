@@ -1,0 +1,193 @@
+Comparisons
+   a > b , a < b.
+   a >= b , a <= b.
+   a == b
+   a != b (does not equal)
+ 
+ Boolean
+    true = yes correct or the truth
+    false = no wrong or not the truth
+
+ String Comparisons (unicode)
+    JS uses a ditionary or lexicographical order to compare letter by letter
+    z > a true
+    glow > glee true
+
+Strict Equality
+    strict equality is triple equals ===
+    regular == cannot distinguish 0 or empty strings from false because operand types convert
+    === tells the difference because it does not convert operand types. 0 is not false its 0
+    
+Comparisons with null and undefined
+    There are non-intuitive comparisons here:
+    null === undefined / false
+    null == undefined / true
+    null > 0 / false
+    null == 0 / false
+    null >= 0 / true
+    undefined > 0 / false
+    undefined < 0 / false
+    undefined == 0 / false
+
+Conditionals (from W3)
+    
+    Simple Greeeting:
+<script>
+if (new Date().getHours() < 18) {
+  document.getElementById("demo").innerHTML = "Good day!";
+}
+</script>
+
+    Else Greeeting
+<script>
+const hour = new Date().getHours(); 
+let greeting;
+
+if (hour < 18) {
+  greeting = "Good day";
+} else {
+  greeting = "Good evening";
+}
+document.getElementById("demo").innerHTML = greeting;
+</script>
+
+    Else If greeting
+<Script>
+const time - new Date().getHours();
+let greeting;
+if (time < 10) {
+    greeting = "Good morning";
+} else if (time < 20) {
+    greeting = "Good day";
+} else {
+    greeting = "Good evening";
+}
+document.getElementById("demo").innerHTML = greeting;
+</script>
+
+Logical Operators
+
+|| (or)
+    in classical programmming the Logical OR (||) is to manipulate boolean values only.
+    if any of its arguments are true it returns true. otherwise it returns false
+    but in JS, || can be more powerful and a little trickier.
+    The four possible logical combinations for OR:
+    EX: alert( true || true );   // true
+        alert( false || true );  // true
+        alert( true || false );  // true
+        alert( false || false ); // false
+    the result is always true unless both operands are false.
+    1 = true, and 0 = false.
+    EX: alert( 1 || 1 );   // true
+        alert( 0 || 1 );  // true
+        alert( 1 || 0 );  // true
+        alert( 0 || 0 ); // false
+    Usually, OR is used in an if statement to test if /any/ of the conditions are true.
+    Ex: let hour = 9;
+        if (hour < 10 || hour > 18) {
+        alert( 'The office is closed.' );
+        } // "The office is closed"
+    We can pass more conditions, as well:
+        let hour = 12;
+        let isWeekend = true;
+        if (hour < 10 || hour > 18 || isWeekend) {
+        alert( 'The office is closed.' ); // it is the weekend
+        } // "The office is open"
+    || finds the first truthy values
+        the extra features of JS:
+        Given multiple OR'd values:
+        result = value1 || value2 || value3 ||;
+        OR || does the following:
+        -evaluates from left to right
+        -converts each to boolean one at a time
+        -if the result is true, the logic stops and returns original value of that operand.
+        -if all operands were evaluated and all were false, returns the last operand (false).
+        -the last operand is returned in its original form, without the conversion though.
+    Ex: alert( 1 || 0 ); // 1 (1 is truthy)
+        alert( null || 1 ); // 1 (1 is the first truthy value)
+        alert( null || 0 || 1 ); // 1 (the first truthy value)
+        alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)
+    This leads to some interesting usage compared to the classical boolean manipulations.
+    1. Getting the first truthy value from a list of variables or expressions:
+        Let's use OR || to choose from a made up list.
+    Ex: let firstName = "";
+        let lastName = "";
+        let nickName = "SuperCoder";
+        alert( firstName || lastName || nickName || "Anonymous"); // SuperCoder
+        if all variables were falsy, "Anonymous" would result.
+    2. Short-Circuit evaluation
+        short-circuit means || processes its arguments until the first truthy value is reached
+        then the value is returned immediately, without even touching the remaining arguments.
+        the importance of this feature becomes obvious is an operand isn't just a value, but
+        if it is an expression with a side effect, such as a variable assignemnt or function call 
+    Ex: true || alert("not printed");
+        false || alert("printed");
+        in the first line, || stops immediately upon seeing true. alert is not executed.
+        Short-circuit eval. is used to execute commands only if the condition on left is falsy.
+
+&& (AND)
+    Written as result = a && b;
+        Returns True if both operands are truthy and false otherwise.
+    Ex: alert( true && true );   // true
+        alert( false && true );  // false
+        alert( true && false );  // false
+        alert( false && false ); // false
+    an example with if:
+    Ex: let hour = 12;
+        let minute = 30;
+        if (hour == 12 && minute == 30) {
+        alert( 'The time is 12:30' );   
+        }
+    just as with OR, any value is allowed as an operand of AND.
+    Ex: if (1 && 0) { // evaluated as true && false
+        alert( "won't work, because the result is falsy" );
+        }
+    AND && finds the first falsy value.
+        given multiple AND'd values
+    Ex: result = value1 && value2 && value3
+    the AND && operator does the following:
+        -evaluates operands from left to right.
+        -for each operand, converts it to a boolean.
+        -if the result is false, stops, returns original value of operand
+        -if all operands have been evaluated all truthy, returns last operand
+    in other words, AND returns first falsy value or the last value
+    if none were found.
+    OR || returns first truthy, AND && returns first falsy.
+    Ex: // if the first operand is truthy,
+        // AND returns the second operand:
+        alert( 1 && 0 ); // 0
+        alert( 1 && 5 ); // 5
+
+        // if the first operand is falsy,
+        // AND returns it. The second operand is ignored
+        alert( null && 5 ); // null
+        alert( 0 && "no matter what" ); // 0     
+    Presidence of AND is higher than OR
+        So the code a && b || c && d is essentially the same as if 
+        the && expressions were in parentheses: (a && b) || (c && d).
+
+! (NOT)
+    the boolean NOT is represented with and exclamation mark !
+    ex: result = !value;
+
+    the operator accepts a single argument and does the following:
+        1. converts the operand to a boolean
+        2. returns the inverse value
+    ex: alert( !true ); // false
+        alert( !0 ); // true
+    
+    a double NOT !! is sometimes usedf for converting a value to boolean
+    ex: alert( !!"non-empty string" ); // true
+        alert( !!null ); // false
+
+    the first NOT converts the value to boolean and returns the inverse
+    the second NOT inverses it again. thus turning a value into a boolean.
+
+    or you could use the longer way
+    ex: alert( Boolean("non-empty string") ); // true
+        alert( Boolean(null) ); // false
+
+    Presidence: the presidence of NOT ! is highest of all the logical operators.
+    NOT ! is executed before both OR || AND &&
+
+
