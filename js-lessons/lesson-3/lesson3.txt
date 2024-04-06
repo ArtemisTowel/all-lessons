@@ -88,4 +88,5 @@ Css features reference https://developer.chrome.com/docs/devtools/css/reference/
         Configure custom timings
         (Experimental) Copy CSS changes
 
-
+Console overview https://developer.chrome.com/docs/devtools/console/
+Console Protips https://www.youtube.com/watch?v=xkzDaKwinA8
