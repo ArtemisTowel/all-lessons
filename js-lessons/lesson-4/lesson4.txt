@@ -1,1 +1,105 @@
 Function Basics
+
+    Goals
+        how to define and invoke different kinds of functions
+        how to use the return value
+        what function scope is
+    
+    functions
+
+    Ex:
+
+        function favoriteAnimal(animal) {
+            return animal + " is my favorite animal!"
+        }
+        console.log(favoriteAnimal('Goat'))
+
+    the function definition is written on the first line
+        function favoriteAnimal(animal).
+    
+    the parameter animal is found inside the parentheses
+
+    by putting animal inside the parentheses of the favoriteAnimal() function,
+    we're telling JS that we will send /some/ value to our new function.
+    This means that animal is just a /placeholder/ for a future value.
+    But what value are we sending?
+
+    The last line, favoriteAnimal('Goat') is where we are calling our
+    favoriteAnimal function and passing the value 'Goat' inside the function
+    Here, 'Goat' is our /argument/. we're telling favoriteAnimal function
+    "Please send 'Goat' to the favoriteAnimal function and use 'Goat'
+    where the 'animal' placeholder is." 
+
+    Because of the flexibility that using a parameter provides, we can 
+    declare any animal to be our favorite.
+
+    diagram
+                        Paramters
+        function sum(param1, param2) {
+            return paramter1 + parameter2;
+        }
+
+        sum(1,2)
+              ^--- arguments
+
+    Make note of the fact that when we call this function:
+    
+     function favoriteAnimal(animal) {
+            return animal + " is my favorite animal!"
+        }
+        console.log(favoriteAnimal('Goat'))
+    
+    we get the return value of the function, string of "Goat is my
+    favorite animal!" printed to the console. We're passing in a function
+    call favoriteAnimal('Goat') as an argument in a different function
+    call - log().
+
+    We will pass function calls as arguments somewhat often.
+    If we just called the function without console.log, nothing would 
+    appear in the console, but the function would return the right string.
+
+*Scope*
+
+    When you create a function, the varialbes and other things defined
+    inside the function are inside their own separate /Scope/. This means
+    that they are locked away in their own separate compartments, unreachable
+    from code outside the functions.
+
+    The tope level outside all your functions is called the Global Scope.
+    Values defind in the Global Scope are accessible from anywhere in the code.
+
+    JS is set up like this for various reasons - but mainly because of security
+    and organization. Sometimes you dont wan't variables to be accessible
+    from everywhere in the code - external scripts that you call in from
+    elsewhere could start to mess with your code and cause problems because
+    they happen to be using the same variable names as other parts of code,
+    causing conflicts. This might be done maliciously or just on accident.
+
+    Ex: you have HTML calling two external JS files, and both JS files
+    have a variable and function defined using the same name:
+    
+    HTML
+        <script src="first.js"></script>
+        <script src="second.js"></script>
+        <script>
+            greeting();
+        </script>
+
+    first JS
+        const name = "Chris";
+        function greeting() {
+        alert(`Hello ${name}: welcome to our company.`);
+
+    second JS 
+        const name = "Zaptec";
+        function greeting() {
+        alert(`Our company is called ${name}.`);
+
+Both functions you want to call are called greeting(), but you can only 
+ever access the first.js file's greeting() function (2nd one is ignored)
+In addition, an error results when attempting (in the second.js file) to
+assign a new value to the name variable - because it was already declared
+with const, and so cant be reassigned.
+
+Keeping parts of your code locked away in functions avoid such problems,
+and is considered the best practice.
