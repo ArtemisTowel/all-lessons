@@ -321,7 +321,7 @@ Returning a value
         return;
         }
 
-        alert( doNothing() === undefined ); // true
+        alert(doNothing() === undefined ); // true
 
     ***NEVER ADD A NEWLINE BETWEEN RETURN AND THE VALUE***
     A new line after return is like putting a semicolon after return.
@@ -477,4 +477,121 @@ Summary
     the basics, so we actually can start creating and using them. But 
     that;s only the beginning of the path, we are going to return to them many
     times, going more deeply into their advanced features.
+
+Functions are Values
+
+    no matter how the function is created, a function is a value.
+
+    Two ways of creating a function. Declarations and Expressions.
+
+    Declaration
+
+        function sayHi() {
+            alert( "Hello" );
+        }
+
+    Expression
+
+        let sayHi = function() {
+            alert( "Hello" );
+        }
+
+    In an expression, the function is created on the equation's right side.
+
+    JS reads, creates, and uses expressions and declarations differently.
+
+    A function Expressions is created when the execution reaches it and it
+    is usable only from that moment on.
+
+        Once the execution flow passes to the right side of the assignment
+        let sayHi = function ...
+
+        now the function is created and can be used from now on.
     
+    function Declarations are different.
+
+        **A Function Declaration can be called earlier than it is defined.
+
+    The order of JS algorithms read for declarations before executing.
+    Even if you call a function before a delcaration in the script, JS will 
+    find that declaration before executing and thus declarations can be 
+    called before they are defined.
+
+    Expressions must be executed to be used. 
+    Declarations are identified before execution. 
+
+Protip: show the coding of the function
+
+    Ex: alert( sayHi );
+
+    Shows the functions code because there are no parentheses after sayHi.
+
+
+Arrow Functions, basic concept
+
+    long form function:
+
+        let sum = function(a, b) {
+        return a + b;
+        }
+
+    Arrow function form:
+
+        let sum = (a, b) => a + b;
+
+    another example:
+
+    let double = n => n * 2;
+    // roughly the same as: let double = function(n) { return n * 2 }
+
+THE CALL STACK basic concept
+
+    JS engine uses a call stack to manage executions contexts:
+    -The Global Execution context
+    -Function execution contexts
+
+    The call stack works on Last In First Out (LIFO) principle
+
+    When you execute a script, the JavaScript engine creates a global execution context and pushes it on top of the call stack.
+
+    Whenever a function is called, the JavaScript engine creates a function execution context for the function, pushes it on top of the call stack, and starts executing the function.
+
+    If a function calls another function, the JavaScript engine creates a new function execution context for the function being called and pushes it on top of the call stack.
+
+    When the current function completes, the JavaScript engine pops it off the call stack and resumes the execution where it left off.
+
+    The script will stop when the call stack is empty.
+
+    ** My Own Words** The call stack is reading everything first to make
+    sure it does everything correctly, before just blowing through code.
+    Thus the reason declarations are executable immediately. You're stating
+    a fact for it to read, not giving it new variables to stack up
+
+    when you have a function inside a function, JS is designed to properly
+    identify anything that has to be done prior to the original function so 
+    that the original function is executed properly.
+
+    This would include deciphering the function within the function as That
+    impacts how the original function will operate upon execution.
+
+    Ex: function add(a, b) {
+        return a + b;
+        }
+
+        function average(a, b) {
+        return add(a, b) / 2;
+        }
+
+        let x = average(10, 20);
+
+    Call stack will look like this (but flipped upside down like a graph):
+
+            main        main        main        main        main
+                        average()   average()   average()
+                                    add()       
+
+    Notice how the call stack builds as it identifies the proper order of
+    actions in order to execute this block of code in correcet order before
+    executing the code in said order, eliminating items off the stack
+
+    This is the basic function of the call stack.
