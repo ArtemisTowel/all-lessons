@@ -595,3 +595,93 @@ THE CALL STACK basic concept
     executing the code in said order, eliminating items off the stack
 
     This is the basic function of the call stack.
+
+ANYONYMOUS Functions
+    
+    Usually functions are given names like 
+
+            function myFunction() {
+                alert("Hello");
+            }
+        
+    But they may be created without names such as
+
+            (function () {
+                alert("hello");
+            });
+
+    Anonymous functions are most common when a function expects to recieve
+    another function as a parameter. In this case, the function parameter is
+    often passed as an anonymous function
+
+    let's say we want to run code when the user types into a text box.
+    we can call the addEventListener() function of the text box.
+    this function expects us to pass it at least two parameters
+
+        - name of the event to listen for, in this case keydown
+        -a function to run when the event happens
+
+    when the user preses a key the browser will call the function
+    you provided, and will pass it a parameter containing information
+    about this event, including the particular key that the user pressed.
+
+        function lokKey(event){
+            console.log('You pressed "${event.key}".');
+        }
+        
+        text.Box.addEventListener(":keydown", logkey);
+
+    Instead of defining a separate logKey() function, you can pass an
+    anonymous function into addEventListener() :
+
+        textBox.addEventListener("keydown", function (event) {
+            console.log(`You pressed "${event.key}".`)
+        });
+
+Example of converting this anyonymous function to an arrow function
+
+    If we pass an anonymous function like this, there's an Alternative
+    form we can use, called an arrow function. Instead of function(event)
+    we just write (event) =>:
+
+        textBox.addEventListener("keydown", (event)=> {
+            console.log(`You pressed "${event.key}".`);
+        });
+
+    If the function only takes one paramter, you can omit ther parentheses
+    around the parameter:
+
+        textBox.addEventListener("keydown", event => {
+            console.lof(`You pressed "${event.key}".`);
+        });
+
+    Finally, if our function contains only one line that's a return statement,
+    we can also omit the braces and the return keyword and implicitly return
+    the expression. In the following example, we're using the map() method
+    of Array to double every value in the original array:
+
+        const originals = [1, 2, 3]
+
+        const doubled = originals.map(item => item * 2);
+
+        console.log(doubled)
+    
+    The map() method takes each item in the array in turn, passing it into
+    the given function. It then takes the value returned by that function
+    and adds it to a new array.
+
+    So in the example above, item => item * 2 is the arrow function 
+    equivalent of:
+
+        function doubleItem(item) {
+            return item * 2;
+        }
+
+    You can use the same concise syntax to rewrite the addEventListener Ex
+
+        textBox.addEventListener("keydown", (event) =>
+            console.log(`You pressed "${event.key".`}),
+        );
+
+    In this case, the value of console.log(), which is undefined, is 
+    implicitly returned from the callback function.
