@@ -1,0 +1,5 @@
+Problem solving
+
+"Problem solving is writing an original program that performs a particular
+set of tasks and meets all stated constraints." - V. Anton Spraul
+
