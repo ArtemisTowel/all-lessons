@@ -3,3 +3,113 @@ Problem solving
 "Problem solving is writing an original program that performs a particular
 set of tasks and meets all stated constraints." - V. Anton Spraul
 
+3 steps of problem solving
+1. understand
+2. plan
+3. divide
+4. psuedocode
+
+Jonathon Blow
+1.  Don't try to solve every problem at once.
+2.  Solve easy problems first, as you learn your solutions improve, thus
+    harder problems will be solved by a smarter person (later you) later.
+
+
+MIT Video
+1.  break the solution into smaller analagous pieces
+2.  combine the solutions into one big solution.
+
+Andy Harris 7 Big Ideas (in this order and each topic broadly)
+-Understand each of these ideas through practice in your first language
+1.  Variables/Data
+    a.  A variables has a name, usually one word
+    b.  A variable is designed to hold a particular type of Data
+    c.  Some languages are loose about ypes, some are strict
+    d.  Regardless, every variable has a type
+    e.  Most common data types: integer, float, string, object
+    f.  A variable should have a starting value
+    g.  (advanced) Will have scope once functions and classes are intro'd
+    h.  (advanced) A class will become a new data type
+3.  Operations
+    a. things you do to variables
+    b. Vary by data type:
+        i.      Numeric: add, subtract, multiply, divide, modulus, trig, etc
+        ii.     Text: combine, search, split, iterate, transform
+        iii.    Conversion: convert from one type to another
+    c. (advanced) the methods of a class often become custom Operations
+    d. (advanced) you can redefine built-in operations  
+3.  Input/Output
+    a. Output   
+        i.  print something to the user or a file
+        ii. normally outputs Text
+        iii.often you need ways to combine multiple outputs and types
+    b.  Input
+        i.  get information from the user or a file
+        ii. implies an output
+        iii.implies a variable to hold data
+        iv. may also invoke a type Conversion
+    c.  (advanced) networking, databases are forms of I/O
+4.  Branching
+    a.  how computer appears to make decisions
+    b.  based on a condition (true/false expression)
+    c.  If condition is true, do one set of instructions
+    d.  May have other instructions if condition is false
+    e.  Conditions can be stacked with 'else' clauses
+    f.  Conditions can also be nested inside each other
+    g.  There are variations, including switch/select
+    h.  (advanced) exception-handling / event response
+    i.  (advanced) compound conditions (and/or)
+5.  Loops
+    a.  how computers manage repetition
+    b.  all loops have some sort of sentry (control) variable
+    c.  all check three things
+        i. how does the loop start?
+        ii. how does the loop end?
+        iii.How does sentry change to get to end condition?
+    d.  two main flavors of loops:
+        i.  for loops
+            A.  deterministic: we know how many times it should happen
+            B.  often something will happen X times
+            C.  sentry is usually an intenger
+            D.  Also used to iterate some sort of list of things
+                I.  items in a list
+                II. Lines in a file
+                III.Characters in a test variable
+            E.  (advanced) foreach, iterators
+        ii. while loops
+            A.  non-demerministic: number of repitions is unknown at start
+            B.  end condition triggered by some state change:
+                I.  user inpit
+                II. external event
+                III.Anything that can be marked by a comparison
+            C.  sentry can be any type
+            D.  Still check same three things (start, end, change)
+            E.  but not built into syntax
+    e.  any loop that doesnt work comes down to syntax or structure
+        i.  what happens when structure is the problem?
+        ii. we must understand how the loop really works
+6.  Functions
+    a.  allow you to group code to 'invent' new commands
+    b.  each function is (ideally) a solution to a sub-problem
+    c.  can take inputs
+    d.  can produce output
+    e.  variables created in a function have local scope
+    f.  a function that doesnt return a value is like a new instruction
+    g.  a function that does return a variable can generate new values
+    h.  (advanced) recursion, first-place status, lambdas
+7.  Aggregation
+    a.  many pieces of data combined into a single variable
+    b.  come in many forms:
+        i.  arrays
+        ii. lists
+        iii.dictionaries
+        iv. classes
+    c.  (advanced) data structures, linked lists, trees, etc
+    d.  (advanced) databases also a form of aggregate data
+7a. Classes
+    a.  Hold elements of many types    
+    b.  Can contain variables (properties)
+    c.  Can also contain functions (methods)
+    d.  can guarantee an initial value (constructor)
+    e.  can be combined and extended to make new things
+    f.  Become new data types, going full circle
