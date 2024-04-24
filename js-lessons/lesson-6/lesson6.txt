@@ -1,0 +1,67 @@
+Understanding errors
+
+Intro
+    Understanding errors allows us to debug our work, get help, and push
+    through obstacles in code.
+
+Lesson overview
+    1.  Name at least three kinds of JS errors
+    2.  ID two parts of error messages that point out the error's origin
+    3.  Be able to understand how to research and resolve errors
+
+Anatomy of an error
+    An error is an /object/ consisting of...
+    -a name/type
+    -a message
+    -errors contain critical info in locating code at fault and fixing it
+
+Ex:
+-----
+    const a = "Hello";
+    const b = "World";
+    console.log(c);  
+-----
+
+This code runs, but /"Throws"/ an error.
+
+The first part of an error displays the type of error.
+
+-----
+    VM189:1 Uncaught ReferenceError: c is not defined
+    at <anonymous>:1:13
+-----
+
+This is a Reference error.
+
+RefrenceErrors are thrown when we refer to a variable that is not
+declared, and/or not initialized within the current scope.
+
+In our case, the error message explains that the error has occured
+because "c is not defined."
+
+Another message we might get is
+
+ReferenceError: can't access lexical declaration 'X' before initialization.
+
+This points to a different error than above. Understanding both the error 
+type and the message is important to understanding why we threw an error.
+
+The next part of the message is the location. This will detail the file
+and the line location in the file where the error came from. For example:
+
+at script.js:4
+
+if you click this link in the console, most browsers will navigate to the
+exact line of code and the rest of our script will open in the sources tab
+of Developer Tools.
+
+Sometimes the console will also display the column (or character) in the
+line at which the error occured. This might look like at script.js:4:13.
+
+
+Stack Trace
+
+    Another important part of an error is the stack trace. This helps you
+    understand when the error was thrown in your application, and what
+    functions were called thata led up to the error. Consider this code:
+
