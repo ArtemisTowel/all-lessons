@@ -65,3 +65,98 @@ Stack Trace
     understand when the error was thrown in your application, and what
     functions were called thata led up to the error. Consider this code:
 
+    const a = 5;
+    const b = 10;
+
+    function add() {
+    return c;
+    }
+
+    function print() {
+    add();
+    }
+
+    print();
+
+    Thrown error will state c is not defined... along with
+    at add (line location)
+    at print (line location)
+    at script.js:(line location)
+
+    The Stack Trace lets tou trace the evolution of an error back to its
+    origin, which here is the declaration of add().
+
+Common Types of errors
+
+Syntax error
+
+    occurs when the code you are trying to run is not written correctly,
+    ie. in accordance with the grammatical rules of JS. Ex:
+
+        function helloWorld() {
+            console.log "Hello World!"
+        }
+    
+    will throw the following error, because the lack of parantheses.
+
+        Uncaught SyntaxError: Invbalid or unexpected token.
+
+Reference errors
+
+    arise because whatever variable you are trying to reference does not
+    exist (within ther current scope) - or it has been spelled incorrectly!
+
+Type error
+
+    these errors are thrown for a few different reasons:
+    
+    -an operand or argument passed to a function is incompatible with the
+    type expected by that operator or function;
+
+    -when attempteing to modify a value that cannot be changed
+
+    -when attempting to use a value in an inappropriate way
+
+    say we want to combine the following strings into one message:
+
+    const str1 = "Hello";
+    const str2 = "World!";
+    const message = str1.push(str2);
+
+    here we get a TypeError stating that str1.push is not a function.
+    This is a common error message that confuses learners because you
+    might know that .push() is certainly a function (for ex. if you have
+    used it to add items to arrays before).
+
+    But that is the key: .push() is not a String method, its for arrays.
+    Hence, it is "not a function" that you can use with strings. If we 
+    change .push() to .concat(), a proper String method, our code runs!
+
+    a good note to keep in mind when faced with a TypeError is to think
+    of the data type you are trying to run a method or operation against.
+    You'll likely find that it is not what you think or the operand or
+    method is not compatible with that type.
+
+Tips for resolving errors.
+
+    At this point you might be wondering how can resolve these errors.
+
+    1.  Errors are our friends, not food. They tell us /exactly/ what is
+        wrong with our code and where to find it. Without errors, debugging
+        would be a nightmare.
+
+    2.  Google!
+
+    3.  Use the Chrome debugger! https://developer.chrome.com/docs/devtools/javascript/
+
+    4.  Use the console. console.log() is a popular choice for debugging.
+        it is great for getting immediate feedback without needing to step
+        through your functions. also try console.table() and console.trace()
+        More methods are here: https://www.w3schools.com/jsref/obj_console.asp
+
+Errors vs Warnings
+
+    -Errors are red. Warnings are ususally yellow.
+    -Errors stop your program. Warnings usually don't.
+    -Warnings provide insight on potential problems.
+    -Warnings should be addressed, but are more likely to be informational.
